@@ -10,7 +10,7 @@ const Overview = () => {
         <span>Tuesday, Aug 5, 2025</span>
       </div>
       <div className='banner-bottom'>
-        <img src="../src/assets/images/icon-sunny.webp" alt="Sunny" />
+        <img src="/images/icon-sunny.webp" alt="Sunny" />
         <span>68°</span>
       </div>
     </div>

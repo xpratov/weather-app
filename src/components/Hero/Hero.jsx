@@ -8,7 +8,7 @@ const Hero = () => {
       <div className='search-bar'>
         <div>
           <div id='search'>
-            <img src="../src/assets/images/icon-search.svg" alt="search" />
+            <img src="/images/icon-search.svg" alt="search" />
             <input type="search" placeholder='Search for a place...' />
           </div>
           <ul className='bg-blur display-none'>

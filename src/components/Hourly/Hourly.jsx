@@ -9,7 +9,7 @@ const Hourly = () => {
         <div >
           <button>
             <span>Tuesday</span>
-            <img src="../src/assets/images/icon-dropdown.svg" alt="" />
+            <img src="/images/icon-dropdown.svg" alt="Open the dropdown" />
           </button>
           <ul className='hidden'>
             <li>Monday</li>
@@ -24,42 +24,42 @@ const Hourly = () => {
       </header>
       <ul>
         <li>
-          <img src="../src/assets/images/icon-fog.webp" alt="" />
+          <img src="/images/icon-fog.webp" alt="" />
           <time datetime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
-          <img src="../src/assets/images/icon-fog.webp" alt="" />
+          <img src="/images/icon-fog.webp" alt="" />
           <time datetime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
-          <img src="../src/assets/images/icon-fog.webp" alt="" />
+          <img src="/images/icon-fog.webp" alt="" />
           <time datetime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
-          <img src="../src/assets/images/icon-fog.webp" alt="" />
+          <img src="/images/icon-fog.webp" alt="" />
           <time datetime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
-          <img src="../src/assets/images/icon-fog.webp" alt="" />
+          <img src="/images/icon-fog.webp" alt="" />
           <time datetime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
-          <img src="../src/assets/images/icon-fog.webp" alt="" />
+          <img src="/images/icon-fog.webp" alt="" />
           <time datetime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
-          <img src="../src/assets/images/icon-fog.webp" alt="" />
+          <img src="/images/icon-fog.webp" alt="" />
           <time datetime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
-          <img src="../src/assets/images/icon-fog.webp" alt="" />
+          <img src="/images/icon-fog.webp" alt="" />
           <time datetime="15:00">3 PM</time>
           <span>68°</span>
         </li>

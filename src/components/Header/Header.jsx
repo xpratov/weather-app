@@ -5,13 +5,13 @@ const Header = () => {
   return (
     <header>
       <a href="/">
-        <img className='logo' src="../src/assets/images/logo.svg" alt="Weather app logotip, pratov" />
+        <img className='logo' src="/images/logo.svg" alt="Weather app logotip, pratov" />
       </a>
       <div>
         <button>
-          <img src="../src/assets/images/icon-units.svg" alt="Units" />
+          <img src="/images/icon-units.svg" alt="Units" />
           Units
-          <img src="../src/assets/images/icon-dropdown.svg" alt="dropdown" />
+          <img src="/images/icon-dropdown.svg" alt="dropdown" />
         </button>
         <div id='menu-units' className='display-none' >
           <h4>Switch to Imperial</h4>
@@ -19,11 +19,11 @@ const Header = () => {
             <label>Temperature</label>
             <li className='selected-imperial'>
               Celsius (&deg;C)
-              <img className='hidden' src="../src/assets/images/icon-checkmark.svg" alt="checkmark" />
+              <img className='hidden' src="/images/icon-checkmark.svg" alt="checkmark" />
             </li>
             <li>
               Fahrenheit (&deg;F)
-              <img className='hidden' src="../src/assets/images/icon-checkmark.svg" alt="checkmark" />
+              <img className='hidden' src="/images/icon-checkmark.svg" alt="checkmark" />
             </li>
           </ul>
           <ul>
