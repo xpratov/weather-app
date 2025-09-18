@@ -1,0 +1,109 @@
+.hero{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 32px;
+  h1{
+    width: 80%;
+    font-family: "Bricolage-Grotesque", sans-serif ;
+    text-align: center;
+    color: var(--neutral-0);
+    font-size: 44px;
+    letter-spacing: 1px;
+  }
+  .search-bar{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    div{
+      position: relative;
+
+      #search{
+        width: 100%;
+        height: 56px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 0px 24px;
+        background-color: var(--neutral-800);
+        border-radius: 12px;
+        img{
+          width: 20px;
+        }
+        input{
+          width: 100%;
+          height: 100%;
+          background-color: var(--neutral-800);
+          border: none;
+          outline: none;
+          color: var(--neutral-200);
+          font-family: "DMSans-Medium", sans-serif;
+          letter-spacing: 1px;
+          font-size: 16px;
+        }
+      }
+      ul{
+        position: absolute;
+        width: 100%;
+        border-radius: 12px;
+        padding: 8px;
+        top: 66px;
+        color: var(--neutral-0);
+        font-family: "DMSans-Medium", sans-serif;
+        z-index: 999;
+
+        li{
+          width: 100%;
+          padding: 10px 8px;
+          border: 1px solid #ffffff00
+        }
+        li:hover{
+          background-color: var(--neutral-700);
+          border-radius: 8px;
+          border: 1px solid var(--neutral-600)
+        }
+      }
+    }
+    button{
+      width: 100%;
+      height: 56px;
+      background-color: var(--blue-500);
+      border: 0px;
+      border-radius: 12px;
+      color: var(--neutral-0);
+      font-family: "DMSans-Medium", sans-serif;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .hero{
+    h1{
+      max-width: 482px;
+    }
+    .search-bar{
+      flex-direction: row;
+      div{
+        width: 100%;
+      }
+      button{
+        max-width: 114px ;
+      }
+    }
+  } 
+}
+@media (min-width: 1440px) {
+  .hero{
+    h1{
+      max-width: 100%;
+    }
+    .search-bar{
+      max-width: 656px;
+    }
+  }
+  
+}

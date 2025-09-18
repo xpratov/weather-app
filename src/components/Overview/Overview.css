@@ -1,0 +1,106 @@
+.banner{
+  width: 100%;
+  height: 286px;
+  padding: auto 24px;
+  background: url("../src/assets/images/bg-today-small.svg") no-repeat center / cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+
+  .banner-top{
+    text-align: center;
+    color: var(--neutral-0);
+    h5{
+      margin-bottom: 12px;
+      font-size: 24px;
+      font-family: "DMSans-Bold", sans-serif;
+    }
+    span{
+      font-size: 14px;
+      opacity: 0.8;
+      font-family: "DMSans-Medium", sans-serif;
+    }
+  }
+  .banner-bottom{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img{
+      width: 120px;
+    }
+    span{
+      font-size: 92px;
+      font-family: "DMSans-SemiBoldItalic";
+      color: var(--neutral-0);
+    }
+  }
+}
+#weather_details{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+  
+  article{
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--neutral-600);
+    background-color: var(--neutral-800);
+    
+    h3{
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 24px;
+      font-family: "DMSans-Medium", sans-serif;
+      color: var(--neutral-200);
+    }
+    p{
+      font-family: "DMSans-Light", sans-serif;
+      color: var(--neutral-0);
+      font-size: 28px;
+      span{
+        margin-left: 6px;
+      }
+    }
+  }
+}
+@media (min-width: 768px) {
+  .banner{
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 24px;
+    background-image: url("../src/assets/images/bg-today-large.svg");
+    .banner-top{
+      text-align: left;
+      h5{
+        font-size: 32px;
+      }
+      span{
+        font-size: 20px;
+      }
+    }
+    .banner-bottom{
+      span{
+        font-size: 100px;
+      }
+    }
+  }
+  #weather_details{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: none;
+  } 
+}
+@media (min-width: 1440px) {
+  .banner{
+    margin-bottom: 30px;
+  }
+  #weather_details{
+    gap: 24px;
+  }
+}
