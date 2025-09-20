@@ -25,42 +25,42 @@ const Hourly = () => {
       <ul>
         <li>
           <img src="/images/icon-fog.webp" alt="" />
-          <time datetime="15:00">3 PM</time>
+          <time dateTime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
           <img src="/images/icon-fog.webp" alt="" />
-          <time datetime="15:00">3 PM</time>
+          <time dateTime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
           <img src="/images/icon-fog.webp" alt="" />
-          <time datetime="15:00">3 PM</time>
+          <time dateTime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
           <img src="/images/icon-fog.webp" alt="" />
-          <time datetime="15:00">3 PM</time>
+          <time dateTime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
           <img src="/images/icon-fog.webp" alt="" />
-          <time datetime="15:00">3 PM</time>
+          <time dateTime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
           <img src="/images/icon-fog.webp" alt="" />
-          <time datetime="15:00">3 PM</time>
+          <time dateTime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
           <img src="/images/icon-fog.webp" alt="" />
-          <time datetime="15:00">3 PM</time>
+          <time dateTime="15:00">3 PM</time>
           <span>68°</span>
         </li>
         <li>
           <img src="/images/icon-fog.webp" alt="" />
-          <time datetime="15:00">3 PM</time>
+          <time dateTime="15:00">3 PM</time>
           <span>68°</span>
         </li>
       </ul>

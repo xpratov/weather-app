@@ -30,22 +30,22 @@ const Header = () => {
             <label>Wind Speed</label>
             <li className='selected-imperial'>
               km/h
-              <img className='hidden' src="../src/assets/images/icon-checkmark.svg" alt="checkmark" />
+              <img className='hidden' src="/images/icon-checkmark.svg" alt="checkmark" />
             </li>
             <li>
               mph
-              <img className='hidden' src="../src/assets/images/icon-checkmark.svg" alt="checkmark" />
+              <img className='hidden' src="/images/icon-checkmark.svg" alt="checkmark" />
             </li>
           </ul>
           <ul>
             <label>Precipitation</label>
             <li>
               Millimeters (mm)
-              <img className='hidden' src="../src/assets/images/icon-checkmark.svg" alt="checkmark" />
+              <img className='hidden' src="/images/icon-checkmark.svg" alt="checkmark" />
             </li>
             <li className='selected-imperial'>
               Inches (in)
-              <img className='hidden' src="../src/assets/images/icon-checkmark.svg" alt="checkmark" />
+              <img className='hidden' src="/images/icon-checkmark.svg" alt="checkmark" />
             </li>
           </ul>
         </div>

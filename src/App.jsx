@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import Daily from './components/Daily/Daily'
 import Header from './components/Header/Header'
@@ -6,11 +7,14 @@ import Hourly from './components/Hourly/Hourly'
 import Overview from './components/Overview/Overview'
 
 function App() {
+  const [selectedCityId, setSelectedCityId]=useState(null)
+  console.log(selectedCityId);
+  
 
   return (
   <>
     <Header/>
-    <Hero/>
+    <Hero onSelectCity={(id)=>{setSelectedCityId(id)}}/>
     <div id='desktoping'>
       <div id='desktoping-left'>
         <Overview/>
