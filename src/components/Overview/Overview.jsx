@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import "./Overview.css"
 
+function getWeatherIcon(code) {
+  if ([0, 1].includes(code)) return "icon-sunny";
+  if ([2].includes(code)) return "icon-partly-cloudy";
+  if ([3].includes(code)) return "icon-overcast";
+  if ([45, 48].includes(code)) return "icon-fog";
+  if ([51, 53, 55, 56, 57].includes(code)) return "icon-drizzle";
+  if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "icon-rain";
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return "icon-snow";
+  if ([95, 96, 99].includes(code)) return "icon-storm";
+  return "icon-sunny"; // default
+}
+
 const Overview = ({locationCity, weather, precipitation}) => {
   
-  function getWeatherIcon(code) {
-    if ([0, 1].includes(code)) return "icon-sunny";
-    if ([2].includes(code)) return "icon-partly-cloudy";
-    if ([3].includes(code)) return "icon-overcast";
-    if ([45, 48].includes(code)) return "icon-fog";
-    if ([51, 53, 55, 56, 57].includes(code)) return "icon-drizzle";
-    if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "icon-rain";
-    if ([71, 73, 75, 77, 85, 86].includes(code)) return "icon-snow";
-    if ([95, 96, 99].includes(code)) return "icon-storm";
-    return "icon-sunny"; // default
-  }
+  
   
 
 
@@ -23,8 +25,6 @@ const Overview = ({locationCity, weather, precipitation}) => {
     const formatted = date.toLocaleDateString('en-US', options);
     return formatted
   }
-  
-  console.log(weather);
   
   return (
   <>
@@ -41,7 +41,7 @@ const Overview = ({locationCity, weather, precipitation}) => {
     <section id='weather_details' aria-label='Weather details'>
       <article>
         <h3>Feels like</h3>
-        <p>{weather.hourly?.apparent_temperature[0]}<span>°</span></p>
+        <p>{Math.round(weather.hourly?.apparent_temperature[0])}<span>°</span></p>
       </article>
       <article>
         <h3>Humidity</h3>
@@ -49,15 +49,16 @@ const Overview = ({locationCity, weather, precipitation}) => {
       </article>
       <article>
         <h3>Wind</h3>
-        <p>{weather.currentWeather?.windspeed}<span>mph</span></p>
+        <p>{Math.round(weather.currentWeather?.windspeed)}<span>km/s</span></p>
       </article>
       <article>
         <h3>Precipitation</h3>
-        <p>{precipitation? precipitation[0]:0}<span>in</span></p>
+        <p>{precipitation? precipitation[0]:0}<span>mm</span></p>
       </article>
     </section>
   </>
   )
 }
 
+export {getWeatherIcon};
 export default Overview

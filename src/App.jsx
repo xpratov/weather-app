@@ -31,7 +31,7 @@ function App() {
     <div id='desktoping'>
       <div id='desktoping-left'>
         <Overview locationCity={locationCity} weather={{currentWeather: weather?.current_weather, hourly: weather?.hourly, precipitation: weather?.daily.precipitation_sum}}/>
-        <Daily/>
+        <Daily daily={weather?.daily}/>
       </div>
       <Hourly/>
     </div>

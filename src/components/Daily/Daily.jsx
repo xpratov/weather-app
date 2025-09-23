@@ -1,67 +1,42 @@
 import React from 'react'
 import "./Daily.css"
+import { getWeatherIcon } from '../Overview/Overview';
 
-const Daily = () => {
+const Daily = ({daily}) => {
+
+  const getDayOfWeek=(dateStr)=>{
+    const date = new Date(dateStr);
+    const weekdayShort = new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(date);
+    return weekdayShort
+  }
+
+  const days = [];
+  for (let i = 0; i < daily?.time.length; i++) {
+    days.push(
+      <article key={i}>
+        <p>{getDayOfWeek(daily.time[i])}</p>
+        <img src={`/images/${getWeatherIcon(daily.weathercode[i])}.webp`} alt="" />
+        <div>
+          <span>{Math.round(daily?.temperature_2m_max[i])}°</span>
+          <span>{Math.round(daily?.temperature_2m_min[i])}°</span>
+        </div>
+      </article>
+    );
+  }
+
   return (
     <section id='daily'>
       <h1>Daily forecast</h1>
       <div id='days'>
-        <article>
-          <p>Tue</p>
-          <img src="/images/icon-fog.webp" alt="" />
-          <div>
-            <span>68°</span>
-            <span>57°</span>
-          </div>
-        </article>
-        <article>
-          <p>Wed</p>
-          <img src="/images/icon-sunny.webp" alt="" />
-          <div>
-            <span>70°</span>
-            <span>59°</span>
-          </div>
-        </article>
-        <article>
-          <p>Thu</p>
-          <img src="/images/icon-storm.webp" alt="" />
-          <div>
-            <span>75°</span>
-            <span>57°</span>
-          </div>
-        </article>
-        <article>
-          <p>Fri</p>
-          <img src="/images/icon-snow.webp" alt="" />
-          <div>
-            <span>77°</span>
-            <span>55°</span>
-          </div>
-        </article>
-        <article>
-          <p>Sat</p>
-          <img src="/images/icon-rain.webp" alt="" />
-          <div>
-            <span>70°</span>
-            <span>59°</span>
-          </div>
-        </article>
-        <article>
-          <p>Sun</p>
-          <img src="/images/icon-partly-cloudy.webp" alt="" />
-          <div>
-            <span>77°</span>
-            <span>61°</span>
-          </div>
-        </article>
-        <article>
+        {days}       
+        {/* <article>
           <p>Mon</p>
           <img src="/images/icon-overcast.webp" alt="" />
           <div>
             <span>75°</span>
             <span>59</span>
           </div>
-        </article>
+        </article> */}
       </div>
     </section>
   )
