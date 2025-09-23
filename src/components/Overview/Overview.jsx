@@ -1,35 +1,59 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Overview.css"
 
-const Overview = () => {
+const Overview = ({locationCity, weather, precipitation}) => {
+  
+  function getWeatherIcon(code) {
+    if ([0, 1].includes(code)) return "icon-sunny";
+    if ([2].includes(code)) return "icon-partly-cloudy";
+    if ([3].includes(code)) return "icon-overcast";
+    if ([45, 48].includes(code)) return "icon-fog";
+    if ([51, 53, 55, 56, 57].includes(code)) return "icon-drizzle";
+    if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "icon-rain";
+    if ([71, 73, 75, 77, 85, 86].includes(code)) return "icon-snow";
+    if ([95, 96, 99].includes(code)) return "icon-storm";
+    return "icon-sunny"; // default
+  }
+  
+
+
+  const prettyDate=(isoDate)=>{
+    const date = new Date(isoDate);
+    const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+    const formatted = date.toLocaleDateString('en-US', options);
+    return formatted
+  }
+  
+  console.log(weather);
+  
   return (
   <>
     <div className="banner">
       <div className='banner-top'>
-        <h5>Berlin, Germany</h5>
-        <span>Tuesday, Aug 5, 2025</span>
+        <h5>{locationCity.name}, {locationCity.country}</h5>
+        <span>{prettyDate(weather.currentWeather?.time)}</span>
       </div>
       <div className='banner-bottom'>
-        <img src="/images/icon-sunny.webp" alt="Sunny" />
-        <span>68°</span>
+        <img src={`/images/${getWeatherIcon(weather.currentWeather?.weathercode)}.webp`} alt="Sunny" />
+        <span>{Math.round((weather.currentWeather?.temperature))}°</span>
       </div>
     </div>
     <section id='weather_details' aria-label='Weather details'>
       <article>
         <h3>Feels like</h3>
-        <p>64<span>°</span></p>
+        <p>{weather.hourly?.apparent_temperature[0]}<span>°</span></p>
       </article>
       <article>
         <h3>Humidity</h3>
-        <p>46<span>%</span></p>
+        <p>{weather.hourly?.relativehumidity_2m[0]}<span>%</span></p>
       </article>
       <article>
         <h3>Wind</h3>
-        <p>9<span>mph</span></p>
+        <p>{weather.currentWeather?.windspeed}<span>mph</span></p>
       </article>
       <article>
         <h3>Precipitation</h3>
-        <p>0<span>in</span></p>
+        <p>{precipitation? precipitation[0]:0}<span>in</span></p>
       </article>
     </section>
   </>

@@ -17,7 +17,6 @@ const Hero = ({onSelectCity}) => {
     setCities(results)  
   }  
     
-
   return (
     <div className='hero'>
       <h1>How's the sky looking today?</h1>
@@ -29,9 +28,9 @@ const Hero = ({onSelectCity}) => {
           </div>
           <ul ref={ulRef} className="bg-blur display-none">
             {cities && cities.length>0? cities.map((city)=>(
-              <li onClick={()=>{onSelectCity(city.id)}} key={city.id} className='selectable'>{city.name}</li>)): 
+              <li onClick={()=>{onSelectCity(city.latitude, city.longitude, city.name, city.country)}} key={city.id} className='selectable'>{city.name}</li>)): 
               <li>
-                <img src="/images/icon-loading.svg" alt="Loading..." />  
+                <img src="/images/icon-loading.svg" alt="Loading..." />
                 Search in progress
               </li>
             }
