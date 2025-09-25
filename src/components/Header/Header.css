@@ -34,6 +34,10 @@ header{
       top: 44px;
       border-radius: 12px;
       padding: 16px;
+      background-color: var(--neutral-800);
+      z-index: 999;
+      margin-top: 10px;
+      border: 1px solid var(--neutral-600);
 
       h4{
         font-weight: 300;
@@ -55,6 +59,10 @@ header{
           justify-content: space-between;
           padding: 10px 8px;
           border-radius: 8px;
+        }
+        li:hover{
+          background-color: var(--neutral-700);
+          cursor: pointer;
         }
       }
       ul:last-child{

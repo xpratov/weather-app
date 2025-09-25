@@ -21,7 +21,6 @@ function App() {
     }
   }, [locationCity]); 
       
-  console.log(weather);
   
 
   return (
@@ -33,7 +32,7 @@ function App() {
         <Overview locationCity={locationCity} weather={{currentWeather: weather?.current_weather, hourly: weather?.hourly, precipitation: weather?.daily.precipitation_sum}}/>
         <Daily daily={weather?.daily}/>
       </div>
-      <Hourly/>
+      <Hourly hourly={weather?.hourly} timezone={weather?.timezone} dailyTime={weather?.daily.time}/>
     </div>
     <h1 id='signature'>by <a target='_blank' href="https://pratov.uz">PRATOV.UZ</a></h1>
   </>

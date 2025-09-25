@@ -1,6 +1,6 @@
 #hourly{
   width: 100%;
-  padding: 20px 16px;
+  padding: 20px 0px 20px 16px;
   border-radius: 20px;
   background-color: var(--neutral-800);
   color: var(--neutral-0);
@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 16px;
+    padding-right: 16px;
     h1{
       font-size: 18px;
       font-family: "DMSans-Semibold";
@@ -17,7 +18,7 @@
     div{
       position: relative;
       button{
-        width: auto;
+        width: 150px;
         display: flex;
         align-items: center;
         gap: 12px;
@@ -32,8 +33,9 @@
       ul{
         position: absolute;
         width: 212px;
+        height: auto;
         right: 0px;
-        top: 44px;
+        top: 54px;
         background-color: var(--neutral-800);
         padding: 8px;
         border: 1px solid var(--neutral-600);
@@ -46,15 +48,19 @@
         }
         li:hover{
           background-color: var(--neutral-600);
+          cursor: pointer;
         }
       }
     }
   }
   ul{
     width: 100%;
+    height: 584px;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding-right: 12px;
     li{
       width: 100%;
       display: flex;
@@ -79,6 +85,18 @@
         font-size: 16px;
       }
     }
+  }
+  ul::-webkit-scrollbar{
+    width: 4px;
+  }
+  ul::-webkit-scrollbar-track {
+    background: inherit; 
+    border-radius: 10px;
+  }
+  ul::-webkit-scrollbar-thumb {
+    border: 1px solid var(--neutral-600);
+    background: var(--neutral-700); 
+    border-radius: 10px;
   }
 }
 
