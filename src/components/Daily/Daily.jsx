@@ -1,8 +1,9 @@
 import React from 'react'
 import "./Daily.css"
 import { getWeatherIcon } from '../Overview/Overview';
+import { celsiusToFahrenheit } from '../../utils/conversions';
 
-const Daily = ({daily}) => {
+const Daily = ({daily, isCelsius}) => {
 
   const getDayOfWeek=(dateStr)=>{
     const date = new Date(dateStr);
@@ -17,8 +18,8 @@ const Daily = ({daily}) => {
         <p>{getDayOfWeek(daily.time[i])}</p>
         <img src={`/images/${getWeatherIcon(daily.weathercode[i])}.webp`} alt="" />
         <div>
-          <span>{Math.round(daily?.temperature_2m_max[i])}°</span>
-          <span>{Math.round(daily?.temperature_2m_min[i])}°</span>
+          <span>{isCelsius? Math.round(daily?.temperature_2m_max[i])+'°' : celsiusToFahrenheit(Math.round(daily?.temperature_2m_max[i]))}</span>
+          <span>{isCelsius? Math.round(daily?.temperature_2m_min[i])+'°' : celsiusToFahrenheit(Math.round(daily?.temperature_2m_min[i]))}</span>
         </div>
       </article>
     );
@@ -29,14 +30,6 @@ const Daily = ({daily}) => {
       <h1>Daily forecast</h1>
       <div id='days'>
         {days}       
-        {/* <article>
-          <p>Mon</p>
-          <img src="/images/icon-overcast.webp" alt="" />
-          <div>
-            <span>75°</span>
-            <span>59</span>
-          </div>
-        </article> */}
       </div>
     </section>
   )

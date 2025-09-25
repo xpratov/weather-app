@@ -10,6 +10,19 @@ import getWeather from './services/api'
 function App() {
   const [locationCity, setLocationCity]=useState({}); // {latitude, longitude}
   const [weather, setWeather]=useState(null)
+  const [isCelsius, setIsCelsius]=useState(true)
+  const [isKmh, setIsKmh]=useState(true)
+  const [isMillimeters, setIsMillimeters]=useState(true)
+
+  const handleCelsiusChange = (boolean)=>{
+    setIsCelsius(boolean)
+  }
+  const handleKmhChange = (boolean)=>{
+    setIsKmh(boolean)
+  }
+  const handleMillimetersChange = (boolean)=>{
+    setIsMillimeters(boolean)
+  }  
 
   useEffect(() => {
     if (locationCity.latitude && locationCity.longitude) {
@@ -19,20 +32,18 @@ function App() {
       };
       fetchWeather();
     }
-  }, [locationCity]); 
-      
-  
+  }, [locationCity]);   
 
   return (
   <>
-    <Header/>
+    <Header onStateCelsius={handleCelsiusChange} onStateKmh={handleKmhChange} onStateMillimeters={handleMillimetersChange}/>
     <Hero onSelectCity={(latitude, longitude, name, country)=>{setLocationCity({latitude, longitude, name, country})}}/>
     <div id='desktoping'>
       <div id='desktoping-left'>
-        <Overview locationCity={locationCity} weather={{currentWeather: weather?.current_weather, hourly: weather?.hourly, precipitation: weather?.daily.precipitation_sum}}/>
-        <Daily daily={weather?.daily}/>
+        <Overview isCelsius={isCelsius} isKmh={isKmh} isMillimeters={isMillimeters} locationCity={locationCity} weather={{currentWeather: weather?.current_weather, hourly: weather?.hourly, precipitation: weather?.daily.precipitation_sum}}/>
+        <Daily isCelsius={isCelsius} daily={weather?.daily}/>
       </div>
-      <Hourly hourly={weather?.hourly} timezone={weather?.timezone} dailyTime={weather?.daily.time}/>
+      <Hourly isCelsius={isCelsius} hourly={weather?.hourly} timezone={weather?.timezone} dailyTime={weather?.daily.time}/>
     </div>
     <h1 id='signature'>by <a target='_blank' href="https://pratov.uz">PRATOV.UZ</a></h1>
   </>

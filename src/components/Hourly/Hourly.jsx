@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import "./Hourly.css"
 import { DateTime } from "luxon";
 import { getWeatherIcon } from '../Overview/Overview';
+import { celsiusToFahrenheit } from '../../utils/conversions';
 
-const Hourly = ({hourly, timezone, dailyTime}) => {
+const Hourly = ({hourly, timezone, dailyTime, isCelsius}) => {
   const weekDaysRef=useRef(null)
   const [hours, setHours]=useState(null)
   const [weekDay, setWeekDay]=useState(null)
@@ -107,7 +108,7 @@ const Hourly = ({hourly, timezone, dailyTime}) => {
           <li key={hour.time}>
             <img src={`/images/${hour.weathercode}.webp`} alt={`${hour.weathercode} pratov`} />
             <time dateTime={`${hour.time}`}>{formatToHour(hour.time)}</time>
-            <span>{Math.round(hour.temperature_2m)}°</span>
+            <span>{isCelsius? Math.round(hour.temperature_2m)+"°" : celsiusToFahrenheit(Math.round(hour.temperature_2m))}</span>
           </li>
         ))}
       </ul>

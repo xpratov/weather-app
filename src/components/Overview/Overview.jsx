@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./Overview.css"
+import { celsiusToFahrenheit, kmhToMph, mmToInch } from '../../utils/conversions';
 
 function getWeatherIcon(code) {
   if ([0, 1].includes(code)) return "icon-sunny";
@@ -13,12 +14,8 @@ function getWeatherIcon(code) {
   return "icon-sunny"; // default
 }
 
-const Overview = ({locationCity, weather, precipitation}) => {
+const Overview = ({locationCity, weather, isCelsius, isKmh, isMillimeters} ) => {
   
-  
-  
-
-
   const prettyDate=(isoDate)=>{
     const date = new Date(isoDate);
     const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
@@ -35,13 +32,13 @@ const Overview = ({locationCity, weather, precipitation}) => {
       </div>
       <div className='banner-bottom'>
         <img src={`/images/${getWeatherIcon(weather.currentWeather?.weathercode)}.webp`} alt="Sunny" />
-        <span>{Math.round((weather.currentWeather?.temperature))}°</span>
+        <span>{isCelsius? Math.round((weather.currentWeather?.temperature))+"°" : celsiusToFahrenheit(Math.round((weather.currentWeather?.temperature)))}</span>
       </div>
     </div>
     <section id='weather_details' aria-label='Weather details'>
       <article>
         <h3>Feels like</h3>
-        <p>{Math.round(weather.hourly?.apparent_temperature[0])}<span>°</span></p>
+        <p>{isCelsius? Math.round(weather.hourly?.apparent_temperature[0])+"°" : celsiusToFahrenheit(Math.round(weather.hourly?.apparent_temperature[0]))}</p>
       </article>
       <article>
         <h3>Humidity</h3>
@@ -49,11 +46,11 @@ const Overview = ({locationCity, weather, precipitation}) => {
       </article>
       <article>
         <h3>Wind</h3>
-        <p>{Math.round(weather.currentWeather?.windspeed)}<span>km/s</span></p>
+        <p>{isKmh? Math.round(weather.currentWeather?.windspeed)+"km/s" : kmhToMph(Math.round(weather.currentWeather?.windspeed))}</p>
       </article>
       <article>
         <h3>Precipitation</h3>
-        <p>{precipitation? precipitation[0]:0}<span>mm</span></p>
+        <p>{weather.precipitation && ( isMillimeters? Math.round(weather.precipitation[0])+"mm" : mmToInch(Math.round(weather?.precipitation[0])))}</p>
       </article>
     </section>
   </>
