@@ -54,6 +54,7 @@
         color: var(--neutral-0);
         font-family: "DMSans-Medium", sans-serif;
         z-index: 999;
+        border: 1px solid var(--neutral-600);
 
         li{
           width: 100%;
