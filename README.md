@@ -31,8 +31,8 @@ Users should be able to:
 
 ## Links
 
-- Solution URL: [Github](https://github.com/xpratov/)  
-- Live Site URL: [Vercel](https://vercel.com/)  
+- Solution URL: [Github](https://github.com/xpratov/weather-app)  
+- Live Site URL: [Vercel](https://weather-app-pratov.vercel.app/)  
 
 ## Built with
 
