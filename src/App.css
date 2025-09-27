@@ -1,7 +1,8 @@
 #signature{
   color: var(--neutral-600);  
   font-size: 18px;
-  margin-top: 30px;
+  position: static;
+  margin-top: 28px;
   a{
     text-decoration: none;
     color: var(--neutral-0);

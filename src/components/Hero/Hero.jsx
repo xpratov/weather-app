@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import "./Hero.css"
 import searchCity from '../../services/search'
 
-const Hero = ({onSelectCity}) => {
-  const [cities, setCities]=useState([])
+const Hero = ({onSelectCity, onCities, onError}) => {
+  const [cities, setCities]=useState(null)
   const [value, setValue]=useState("")
   const ulRef=useRef(null)
   const [isOpen, setIsOpen]=useState(false)
@@ -15,8 +15,13 @@ const Hero = ({onSelectCity}) => {
       return
     }
     setIsOpen(true)
-    const results=await searchCity(value, 5)
-    setCities(results)  
+    try {
+      const results=await searchCity(value, 5)
+      onCities(results)
+      setCities(results)  
+    } catch (error) {
+      onError(true)
+    }    
   }  
 
   useEffect(() => {
@@ -53,7 +58,7 @@ const Hero = ({onSelectCity}) => {
           </div>
           {isOpen &&
             <ul ref={ulRef} className="bg-blur">
-              {cities && cities.length>0? cities.map((city)=>(
+              { cities?.length>0? cities.map((city)=>(
                 <li onClick={()=>{handleCity(city)}} key={city.id} className='selectable'>{city.name}</li>)): 
                 <li>
                   <img src="/images/icon-loading.svg" alt="Loading..." />
